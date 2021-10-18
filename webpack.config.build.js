@@ -32,11 +32,7 @@ module.exports = (dirname) => {
     target: 'node',
     resolve: {
       extensions: ['.mjs', '.ts', '.js'],
-      plugins: [
-        new TsconfigPathsPlugin({
-          /* options: see below */
-        }),
-      ],
+      plugins: [],
     },
     output: {
       libraryTarget: 'commonjs2',

@@ -20,11 +20,6 @@ module.exports = () => {
   const plugins = [new ForkTsCheckerWebpackPlugin()];
 
   return {
-    node: {
-      global: false,
-      __filename: false,
-      __dirname: false,
-    },
     mode,
     devtool: 'source-map',
     entry,
@@ -38,20 +33,13 @@ module.exports = () => {
       ],
     },
     output: {
-      libraryTarget: 'commonjs2',
+      libraryTarget: 'commonjs',
       path: TARGET_DIR,
       filename,
     },
     //   externals: [],
     module: {
       rules: [
-        {
-          type: 'javascript/auto',
-          test: /\.mjs$/,
-          // resolve: {
-          //   fullySpecified: false,
-          // },
-        },
         {
           test: /.tsx?$/,
           use: [
@@ -66,7 +54,7 @@ module.exports = () => {
       ],
     },
     plugins,
-    externals: [{ 'aws-sdk': 'commonjs aws-sdk', y18n: 'commonjs2 y18n', 'yargs-parser': 'commonjs2 yargs-parser' }],
+    externals: ['aws-sdk'],
     optimization: {
       minimize: false,
       //   Turned this off because it apollo server throws error, schema must contain uniquely named types but contains multiple types named "XXX"
