@@ -12,6 +12,7 @@
     "build": "npx ttsc --p ./tsconfig.json",
     "start:build": "node dist/index.js",
     "start": "run-p start:local start:mongo:db start:mongo:ui",
+    "start:env": "run-p start:mongo:db start:mongo:ui",
     "build:wp": "webpack --config ./webpack.config.js",
     "build:es": "node esbuild.config.js",
     "start:local": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
