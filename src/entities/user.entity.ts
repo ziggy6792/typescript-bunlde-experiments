@@ -1,6 +1,8 @@
+import { Ref } from 'src/types';
 import { prop as Property, getModelForClass } from '@typegoose/typegoose';
 import { ObjectType, Field } from 'type-graphql';
 import { PaginateModel } from 'typegoose-cursor-pagination';
+import { ObjectId } from 'mongodb';
 import { BaseEntity } from './base.entity';
 
 @ObjectType()
@@ -26,6 +28,9 @@ export class User extends BaseEntity {
   @Field()
   @Property({ required: true })
   email: string;
+
+  @Property({ type: ObjectId })
+  target: Ref<User>;
 }
 
 export const UserModel = getModelForClass(User) as PaginateModel<User, typeof User>;
