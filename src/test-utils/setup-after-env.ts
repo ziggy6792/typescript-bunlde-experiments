@@ -1,4 +1,5 @@
 import 'reflect-metadata';
+
 import * as getEnvConfig from 'src/config/get-env-config';
 import Context from 'src/graphql-setup/context';
 import Container from 'typedi';
@@ -7,7 +8,8 @@ import localConfig from './config';
 import { TEST_CONTEXT } from './tokens';
 
 // Ignore what is set in config and force test env config
-jest.spyOn(getEnvConfig, 'default').mockReturnValue(localConfig);
+// ToDo: re-enable tests
+// jest.spyOn(getEnvConfig, 'default').mockReturnValue(localConfig);
 
 Container.set({
   id: TEST_CONTEXT,

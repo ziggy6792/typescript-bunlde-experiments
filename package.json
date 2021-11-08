@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "jest --coverage --runInBand --colors --bail --detectOpenHandles",
     "update": "npx ncu -u && yarn install",
-    "build": "npx ttsc --p ./tsconfig.json",
+    "build": "yarn ttsc --p ./tsconfig.json",
     "start:build": "node dist/index.js",
     "start": "run-p start:local start:mongo:db start:mongo:ui",
     "start:env": "run-p start:mongo:db start:mongo:ui",
