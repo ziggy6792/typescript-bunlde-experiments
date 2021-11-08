@@ -1,4 +1,3 @@
-// ToDo: re-enable test
 /* eslint-disable max-len */
 import { mongoose } from '@typegoose/typegoose';
 import { gCall } from 'src/test-utils/g-call';

@@ -8,7 +8,7 @@ import localConfig from './config';
 import { TEST_CONTEXT } from './tokens';
 
 // Ignore what is set in config and force test env config
-// ToDo: re-enable tests
+
 jest.spyOn(getEnvConfig, 'default').mockReturnValue(localConfig);
 
 Container.set({
