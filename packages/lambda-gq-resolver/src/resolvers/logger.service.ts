@@ -1,5 +1,5 @@
 import { Service, Inject } from 'typedi';
-import Context from 'packages/lambda-gq-resolver/src/graphql-setup/context';
+import Context from 'src/graphql-setup/context';
 
 // this service will be recreated for each request (scoped)
 @Service()

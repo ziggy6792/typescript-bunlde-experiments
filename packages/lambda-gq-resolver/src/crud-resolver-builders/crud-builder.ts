@@ -1,15 +1,15 @@
 /* eslint-disable no-self-assign */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable class-methods-use-this */
-import GetOne from 'packages/lambda-gq-resolver/src/crud-resolver-builders/resolver-builder-get-one';
+import GetOne from 'src/crud-resolver-builders/resolver-builder-get-one';
 import { Arg, Query, Resolver, Int, Mutation, UseMiddleware } from 'type-graphql';
 import { conditional } from 'conditional-decorator';
-import { ResolverBuilder } from 'packages/lambda-gq-resolver/src/crud-resolver-builders/resolver-builder';
-import { BaseEntity } from 'packages/lambda-gq-resolver/src/entities/base.entity';
-import { BaseEntityResolver } from 'packages/lambda-gq-resolver/src/resolvers/base.entity.resolver';
+import { ResolverBuilder } from 'src/crud-resolver-builders/resolver-builder';
+import { BaseEntity } from 'src/entities/base.entity';
+import { BaseEntityResolver } from 'src/resolvers/base.entity.resolver';
 import { ObjectId } from 'mongodb';
-import { ApplyDefaults, Ref } from 'packages/lambda-gq-resolver/src/types';
-import { BaseList } from 'packages/lambda-gq-resolver/src/objects/lists';
+import { ApplyDefaults, Ref } from 'src/types';
+import { BaseList } from 'src/objects/lists';
 import { GetMany, CreateOne, CreateMany, UpdateOne, UpdateMany, DeleteOne } from '.';
 
 interface IKeys {

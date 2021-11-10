@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 
-import * as getEnvConfig from 'packages/lambda-gq-resolver/src/config/get-env-config';
-import Context from 'packages/lambda-gq-resolver/src/graphql-setup/context';
+import * as getEnvConfig from 'src/config/get-env-config';
+import Context from 'src/graphql-setup/context';
 import Container from 'typedi';
 import { v4 as uuidv4 } from 'uuid';
 import localConfig from './config';

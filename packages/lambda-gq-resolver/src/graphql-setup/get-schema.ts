@@ -2,8 +2,8 @@ import { buildSchemaSync, ResolverData } from 'type-graphql';
 import { GraphQLSchema } from 'graphql';
 import { ObjectId } from 'mongodb';
 
-import { HelloWorldResolver } from 'packages/lambda-gq-resolver/src/resolvers/hello-world.resolver';
-import { UserResolver } from 'packages/lambda-gq-resolver/src/resolvers/user.resolver';
+import { HelloWorldResolver } from 'src/resolvers/hello-world.resolver';
+import { UserResolver } from 'src/resolvers/user.resolver';
 import { TypegooseMiddleware } from './typegoose-middleware';
 import { ObjectIdScalar } from './object-id.scalar';
 import Context from './context';

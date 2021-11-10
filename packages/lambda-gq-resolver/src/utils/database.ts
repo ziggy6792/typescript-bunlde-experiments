@@ -1,5 +1,5 @@
 import { connect, Mongoose } from 'mongoose';
-import getEnvConfig from 'packages/lambda-gq-resolver/src/config/get-env-config';
+import getEnvConfig from 'src/config/get-env-config';
 
 const envConfig = getEnvConfig();
 

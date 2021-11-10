@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 
-import { User } from 'packages/lambda-gq-resolver/src/entities/user.entity';
+import { User } from 'src/entities/user.entity';
 import { Field, ObjectType } from 'type-graphql';
 import { IPaginateResult } from 'typegoose-cursor-pagination';
 

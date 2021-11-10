@@ -1,5 +1,5 @@
 import { GraphQLScalarType, Kind } from 'graphql';
-import { Timecode } from 'packages/lambda-gq-resolver/src/timecode';
+import { Timecode } from 'src/timecode';
 
 export const TimecodeScalar = new GraphQLScalarType({
   name: 'Timecode',

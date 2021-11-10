@@ -1,4 +1,4 @@
-import { Ref } from 'packages/lambda-gq-resolver/src/types';
+import { Ref } from 'src/types';
 import { prop as Property, getModelForClass } from '@typegoose/typegoose';
 import { ObjectType, Field } from 'type-graphql';
 import { PaginateModel } from 'typegoose-cursor-pagination';

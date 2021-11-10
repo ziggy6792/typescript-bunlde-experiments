@@ -1,8 +1,8 @@
 // ToDo : delete this
 
-import { BaseEntity } from 'packages/lambda-gq-resolver/src/entities/base.entity';
-import Context from 'packages/lambda-gq-resolver/src/graphql-setup/context';
-import BaseEntityService from 'packages/lambda-gq-resolver/src/services/base-entity.service';
+import { BaseEntity } from 'src/entities/base.entity';
+import Context from 'src/graphql-setup/context';
+import BaseEntityService from 'src/services/base-entity.service';
 import { Inject } from 'typedi';
 
 interface ICrudProps<T extends BaseEntity> {

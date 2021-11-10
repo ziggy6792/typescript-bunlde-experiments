@@ -1,5 +1,5 @@
-import localConfig from 'packages/lambda-gq-resolver/src/test-utils/config';
-import { Config, EnvType } from 'packages/lambda-gq-resolver/src/types';
+import localConfig from 'src/test-utils/config';
+import { Config, EnvType } from 'src/types';
 
 // Point to test (local) or staging (cloud)
 // ToDo move this to local non staged file

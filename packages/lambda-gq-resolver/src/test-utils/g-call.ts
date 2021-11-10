@@ -2,7 +2,7 @@
 import { ExecutionResult, graphql } from 'graphql';
 import { Maybe } from 'graphql/jsutils/Maybe';
 import Container from 'typedi';
-import { getSchema } from 'packages/lambda-gq-resolver/src/graphql-setup/get-schema';
+import { getSchema } from 'src/graphql-setup/get-schema';
 import { TEST_CONTEXT } from './tokens';
 
 interface IOptions {

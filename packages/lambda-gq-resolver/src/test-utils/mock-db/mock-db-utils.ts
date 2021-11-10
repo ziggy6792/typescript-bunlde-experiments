@@ -1,8 +1,8 @@
 import { ReturnModelType } from '@typegoose/typegoose';
 import { AnyParamConstructor } from '@typegoose/typegoose/lib/types';
 
-import { UserModel } from 'packages/lambda-gq-resolver/src/entities/user.entity';
-import { connectMongo } from 'packages/lambda-gq-resolver/src/utils/database';
+import { UserModel } from 'src/entities/user.entity';
+import { connectMongo } from 'src/utils/database';
 import { IMockDb } from './types';
 
 const modelMap = {

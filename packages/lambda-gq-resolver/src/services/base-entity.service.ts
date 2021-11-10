@@ -3,10 +3,10 @@
 /* eslint-disable class-methods-use-this */
 /* eslint-disable no-useless-constructor */
 import { Inject } from 'typedi';
-import { MongooseUpdate, Ref, BaseEntityModel } from 'packages/lambda-gq-resolver/src/types';
-import Context from 'packages/lambda-gq-resolver/src/graphql-setup/context';
-import { BaseEntity } from 'packages/lambda-gq-resolver/src/entities/base.entity';
-import { AddId } from 'packages/lambda-gq-resolver/src/inputs/types';
+import { MongooseUpdate, Ref, BaseEntityModel } from 'src/types';
+import Context from 'src/graphql-setup/context';
+import { BaseEntity } from 'src/entities/base.entity';
+import { AddId } from 'src/inputs/types';
 import { IPaginateOptions, IPaginateResult } from 'typegoose-cursor-pagination';
 
 export default class BaseEntityService<T extends BaseEntity> {

@@ -1,4 +1,4 @@
-import { connectMongo } from 'packages/lambda-gq-resolver/src/utils/database';
+import { connectMongo } from 'src/utils/database';
 import { dbDefault } from './mock-db';
 import mockDbUtils from './mock-db/mock-db-utils';
 

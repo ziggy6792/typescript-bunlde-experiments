@@ -1,4 +1,4 @@
-import { User, UserModel } from 'packages/lambda-gq-resolver/src/entities/user.entity';
+import { User, UserModel } from 'src/entities/user.entity';
 import { Service } from 'typedi';
 import BaseEntityService from './base-entity.service';
 

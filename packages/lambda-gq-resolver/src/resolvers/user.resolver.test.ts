@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { mongoose } from '@typegoose/typegoose';
-import { gCall } from 'packages/lambda-gq-resolver/src/test-utils/g-call';
-import testConn from 'packages/lambda-gq-resolver/src/test-utils/test-conn';
+import { gCall } from 'src/test-utils/g-call';
+import testConn from 'src/test-utils/test-conn';
 
 beforeAll(async () => {
   await testConn();

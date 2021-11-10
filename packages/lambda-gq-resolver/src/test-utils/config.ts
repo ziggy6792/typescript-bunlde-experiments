@@ -1,4 +1,4 @@
-import { Config, EnvType } from 'packages/lambda-gq-resolver/src/types';
+import { Config, EnvType } from 'src/types';
 
 const localConfig: Config = {
   env: EnvType.TEST,
