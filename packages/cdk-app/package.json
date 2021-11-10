@@ -26,6 +26,7 @@
     "typescript": "~4.2.4"
   },
   "dependencies": {
+    "@whire-be/cognito-linkedin-openid-wrapper": "^1.2.0",
     "@aws-cdk/assets": "1.112.0",
     "@aws-cdk/aws-apigateway": "1.112.0",
     "@aws-cdk/aws-applicationautoscaling": "1.112.0",
