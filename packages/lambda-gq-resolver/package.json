@@ -24,7 +24,6 @@
   "author": "Simon Verhoeven",
   "license": "MIT",
   "dependencies": {
-    "@anatine/esbuild-decorators": "^0.2.18",
     "@typegoose/typegoose": "^9.0.1",
     "@types/jest": "^27.0.2",
     "@types/uuid": "^8.3.1",
@@ -32,7 +31,6 @@
     "apollo-server-plugin-base": "^3.2.0",
     "class-validator": "^0.13.1",
     "conditional-decorator": "^0.1.7",
-    "esbuild": "^0.13.8",
     "express": "^4.17.1",
     "graphql": "^15.6.0",
     "mongo-gui": "^0.0.13",
