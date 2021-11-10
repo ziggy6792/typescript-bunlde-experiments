@@ -16,6 +16,7 @@
     "nodemon": "^2.0.7"
   },
   "dependencies": {
+    "aws-sdk": "2.965.0",
     "json-beautify": "^1.1.1",
     "src": "link:./src"
   },
@@ -31,8 +32,5 @@
     "ttypescript": "^1.5.12",
     "typescript": "^4.3.5",
     "typescript-transform-paths": "^2.0.0"
-  },
-  "peerDependencies": {
-    "aws-sdk": "2.965.0"
   }
 }

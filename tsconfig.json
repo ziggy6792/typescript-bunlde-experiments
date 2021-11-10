@@ -6,7 +6,7 @@
     "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "importHelpers": true,
+    "importHelpers": false,
     "declaration": true,
     "skipLibCheck": true,
     "module": "commonjs",
