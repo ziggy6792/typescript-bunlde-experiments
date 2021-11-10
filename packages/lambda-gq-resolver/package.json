@@ -1,5 +1,5 @@
 {
-  "name": "demo-backend",
+  "name": "@whire-be/lambda-gq-resolver",
   "version": "1.0.0",
   "description": "demo Assignment Backend",
   "main": "./dist/index.js",

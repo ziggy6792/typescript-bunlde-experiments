@@ -1,5 +1,5 @@
 {
-  "name": "@whire-be/lambda-gq-resolver",
+  "name": "whire-be",
   "version": "1.0.0",
   "description": "demo Assignment Backend",
   "main": "./dist/index.js",
@@ -11,21 +11,23 @@
     ]
   },
   "scripts": {
-    "lint": "yarn eslint './{utils,packages}/**/src/**/*.ts'",
-    "typecheck": "tsc --noEmit",
+    "clean:light": "rm -rf ./tsconfig.build.tsbuildinfo && rm -rf ./dist",
+    "clean:full": "yarn run clean:light && rm -rf ./node_modules",
+    "test:watch": "jest --watch --runInBand --colors",
     "test": "jest --coverage --runInBand --colors --bail --detectOpenHandles",
-    "update": "npx ncu -u && yarn install",
-    "build": "yarn ttsc --p ./tsconfig.json",
-    "start:build": "node dist/index.js",
-    "start": "run-p start:local start:mongo:db start:mongo:ui",
-    "start:env": "run-p start:mongo:db start:mongo:ui",
-    "build:wp": "webpack --config ./webpack.config.js",
-    "build:es": "node esbuild.config.js",
-    "start:local": "ts-node-dev -r tsconfig-paths/register --respawn src/index.ts",
-    "start:mongo:db": "docker-compose -f docker-compose-dev.yml up",
-    "start:mongo:ui": "mongo-gui -u mongodb://localhost:27016/",
-    "docker:build": "docker-compose up --build",
-    "docker:run": "docker-compose up"
+    "test:with:env": "yarn local:db:start:test:db && yarn test && yarn local:db:force:stop",
+    "local:db:start:test:db": "lerna run start:test:db --scope @whire-be/local-test-server --stream",
+    "local:db:force:stop": "lerna run force:stop --scope @whire-be/local-test-server --stream",
+    "lint": "yarn eslint './{utils,packages}/**/src/**/*.ts'",
+    "pretty": "yarn prettier --write './{utils,packages}/**/src/**/*.ts'",
+    "typecheck": "yarn lerna run typecheck --parallel",
+    "start": "lerna run start --stream --parallel",
+    "start:local:server": "lerna run start --stream --parallel --scope @whire-be/local-lambda-server --scope @whire-be/lambda-gq-resolver",
+    "force:stop": "lerna run force:stop --stream --parallel",
+    "nodemon": "nodemon",
+    "build": "lerna run build",
+    "build:prod": "NODE_ENV=production yarn build",
+    "cdk:synth": "lerna run synth --scope @whire-be/cdk-app && rm -rf cdk.out && cp -r packages/cdk-app/cdk.out cdk.out"
   },
   "author": "Simon Verhoeven",
   "license": "MIT",
@@ -34,27 +36,10 @@
     "@typegoose/typegoose": "^9.0.1",
     "@types/jest": "^27.0.2",
     "@types/uuid": "^8.3.1",
-    "apollo-server-express": "^3.3.0",
-    "apollo-server-plugin-base": "^3.2.0",
-    "class-validator": "^0.13.1",
-    "conditional-decorator": "^0.1.7",
-    "esbuild": "^0.13.8",
     "express": "^4.17.1",
-    "graphql": "^15.6.0",
-    "mongo-gui": "^0.0.13",
-    "mongodb": "^4.1.2",
-    "mongoose": "^6.0.7",
     "npm-run-all": "^4.1.5",
-    "pluralize": "^8.0.0",
-    "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.20",
-    "src": "link:./src",
-    "ts-node-dev": "^1.1.8",
     "tsconfig-paths": "^3.11.0",
     "tsconfig-paths-jest": "^0.0.1",
-    "type-graphql": "^1.1.1",
-    "typedi": "^0.10.0",
-    "typegoose-cursor-pagination": "^1.2.2",
     "typescript": "^4.4.3",
     "uuid": "^8.3.2"
   },
@@ -77,24 +62,27 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
     "ts-jest": "^27.0.5",
-    "ts-node": "^10.2.1",
     "tsconfig-paths": "^3.11.0",
     "ttypescript": "^1.5.12",
     "typescript": "^4.4.3",
     "typescript-transform-paths": "^2.0.0"
   },
+  "resolutions": {
+    "aws-sdk": "2.965.0"
+  },
   "lint-staged": {
-    "src/**/*.{ts,tsx}": [
+    "{packages,utils}/*/src/**/*.{ts,tsx}": [
       "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "jest --bail --runInBand --findRelatedTests"
     ],
-    "src/**/*.{json,ts,tsx}": [
-      "prettier --write --config .prettierrc"
+    "{packages,utils}/*/src/**/*.{json,ts,tsx,html,css,scss}": [
+      "prettier --write --config ./.prettierrc"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn typecheck"
+      "pre-commit": "lint-staged && lerna run precommit --parallel --since HEAD"
     }
   },
   "packageManager": "yarn@3.1.0"

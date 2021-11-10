@@ -1508,9 +1508,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@whire-be/lambda-gq-resolver@workspace:.":
+"@whire-be/lambda-gq-resolver@workspace:packages/lambda-gq-resolver":
   version: 0.0.0-use.local
-  resolution: "@whire-be/lambda-gq-resolver@workspace:."
+  resolution: "@whire-be/lambda-gq-resolver@workspace:packages/lambda-gq-resolver"
   dependencies:
     "@anatine/esbuild-decorators": ^0.2.18
     "@typegoose/typegoose": ^9.0.1
@@ -2884,60 +2884,6 @@ __metadata:
   checksum: a51744d9b53c164ba9c0492471a1a2ffa0b6727451bdc89e31627fdf4adda9d51277cfcbfb20f0a6f08ccb3c436f341df3e92631a3440226d93a8971724771fd
   languageName: node
   linkType: hard
-
-"demo-backend@workspace:packages/lambda-gq-resolver":
-  version: 0.0.0-use.local
-  resolution: "demo-backend@workspace:packages/lambda-gq-resolver"
-  dependencies:
-    "@anatine/esbuild-decorators": ^0.2.18
-    "@typegoose/typegoose": ^9.0.1
-    "@types/jest": ^27.0.2
-    "@types/node": ^16.11.7
-    "@types/uuid": ^8.3.1
-    "@typescript-eslint/eslint-plugin": ^4.31.2
-    "@typescript-eslint/parser": ^4.31.2
-    apollo-server-express: ^3.3.0
-    apollo-server-plugin-base: ^3.2.0
-    class-validator: ^0.13.1
-    conditional-decorator: ^0.1.7
-    esbuild: ^0.13.8
-    eslint: ^7.32.0
-    eslint-config-airbnb: ^18.2.1
-    eslint-config-airbnb-base: ^14.2.1
-    eslint-config-prettier: ^8.3.0
-    eslint-plugin-import: ^2.24.2
-    eslint-plugin-jsx-a11y: ^6.4.1
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-react: 7.21.5
-    eslint-plugin-react-hooks: ^4.3.0
-    express: ^4.17.1
-    graphql: ^15.6.0
-    husky: ^4.3.8
-    jest: ^27.0.0
-    lint-staged: ^11.1.2
-    mongo-gui: ^0.0.13
-    mongodb: ^4.1.2
-    mongoose: ^6.0.7
-    npm-run-all: ^4.1.5
-    pluralize: ^8.0.0
-    prettier: ^2.4.1
-    reflect-metadata: ^0.1.13
-    source-map-support: ^0.5.20
-    src: "link:./src"
-    ts-jest: ^27.0.5
-    ts-node: ^10.2.1
-    ts-node-dev: ^1.1.8
-    tsconfig-paths: ^3.11.0
-    tsconfig-paths-jest: ^0.0.1
-    ttypescript: ^1.5.12
-    type-graphql: ^1.1.1
-    typedi: ^0.10.0
-    typegoose-cursor-pagination: ^1.2.2
-    typescript: ^4.4.3
-    typescript-transform-paths: ^2.0.0
-    uuid: ^8.3.2
-  languageName: unknown
-  linkType: soft
 
 "denque@npm:^1.4.1, denque@npm:^1.5.0":
   version: 1.5.1
@@ -7681,15 +7627,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"src@link:./src::locator=%40whire-be%2Flambda-gq-resolver%40workspace%3A.":
+"src@link:./src::locator=%40whire-be%2Flambda-gq-resolver%40workspace%3Apackages%2Flambda-gq-resolver":
   version: 0.0.0-use.local
-  resolution: "src@link:./src::locator=%40whire-be%2Flambda-gq-resolver%40workspace%3A."
-  languageName: node
-  linkType: soft
-
-"src@link:./src::locator=demo-backend%40workspace%3Apackages%2Flambda-gq-resolver":
-  version: 0.0.0-use.local
-  resolution: "src@link:./src::locator=demo-backend%40workspace%3Apackages%2Flambda-gq-resolver"
+  resolution: "src@link:./src::locator=%40whire-be%2Flambda-gq-resolver%40workspace%3Apackages%2Flambda-gq-resolver"
   languageName: node
   linkType: soft
 
@@ -8669,6 +8609,42 @@ __metadata:
   checksum: 1a5c563d3c1b52d5f893c8b61afe11abc3bab4afac492e8da5bde69d550de701cf9806235f20a47b5c8fa8a1d6a9135841de2596535e998027a54589000e66d1
   languageName: node
   linkType: hard
+
+"whire-be@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "whire-be@workspace:."
+  dependencies:
+    "@anatine/esbuild-decorators": ^0.2.18
+    "@typegoose/typegoose": ^9.0.1
+    "@types/jest": ^27.0.2
+    "@types/node": ^16.11.7
+    "@types/uuid": ^8.3.1
+    "@typescript-eslint/eslint-plugin": ^4.31.2
+    "@typescript-eslint/parser": ^4.31.2
+    eslint: ^7.32.0
+    eslint-config-airbnb: ^18.2.1
+    eslint-config-airbnb-base: ^14.2.1
+    eslint-config-prettier: ^8.3.0
+    eslint-plugin-import: ^2.24.2
+    eslint-plugin-jsx-a11y: ^6.4.1
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-react: 7.21.5
+    eslint-plugin-react-hooks: ^4.3.0
+    express: ^4.17.1
+    husky: ^4.3.8
+    jest: ^27.0.0
+    lint-staged: ^11.1.2
+    npm-run-all: ^4.1.5
+    prettier: ^2.4.1
+    ts-jest: ^27.0.5
+    tsconfig-paths: ^3.11.0
+    tsconfig-paths-jest: ^0.0.1
+    ttypescript: ^1.5.12
+    typescript: ^4.4.3
+    typescript-transform-paths: ^2.0.0
+    uuid: ^8.3.2
+  languageName: unknown
+  linkType: soft
 
 "wide-align@npm:^1.1.0":
   version: 1.1.5
