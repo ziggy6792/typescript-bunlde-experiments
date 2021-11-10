@@ -8,7 +8,7 @@
     "start": "run-p start:mongo:db start:mongo:ui start:local ",
     "start:other": "run-p start:mongo:db start:mongo:ui",
     "force:stop": "echo forcestop $ kill $(lsof -i:3100 | grep node | cut -d' ' -f2- )",
-    "start:local": "sleep 10 && ts-node-dev -r tsconfig-paths/register src/index.ts --watch .env --respawn src/index.ts ",
+    "start:local": "sleep 20 && ts-node-dev -r tsconfig-paths/register src/index.ts --watch .env --respawn src/index.ts ",
     "start:mongo:db": "docker-compose up > /dev/null",
     "start:mongo:ui": "mongo-gui -u mongodb://localhost:27016/"
   },
