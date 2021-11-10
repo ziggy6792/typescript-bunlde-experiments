@@ -4,20 +4,25 @@ import Container, { ContainerInstance } from 'typedi';
 import { GraphQLRequestContext } from 'apollo-server-plugin-base';
 import express from 'express';
 import { v4 as uuidv4 } from 'uuid';
+import { Server } from 'http';
+
+import cors from 'cors';
+import * as serverless from 'aws-serverless-express';
+import { graphqlUploadExpress } from 'graphql-upload';
 import { getSchema } from './graphql-setup/get-schema';
 import { connectMongo } from './utils/database';
 import Context from './graphql-setup/context';
 
-async function bootstrap() {
+const createApolloServer = async (): Promise<ApolloServer> => {
   // create mongoose connection
   await connectMongo();
 
   const schema = getSchema();
   // create GraphQL server
-  const server = new ApolloServer({
+  return new ApolloServer({
     schema,
     // we need to provide unique context with `requestId` for each request
-    context: (): Context => {
+    context: (recieved: any): Context => {
       const requestId = uuidv4(); // uuid-like
       const container = Container.of(requestId.toString()); // get scoped container
       const context = new Context({ requestId, container }); // create our context
@@ -36,18 +41,49 @@ async function bootstrap() {
           console.log('instances left in memory:', instancesIds);
         },
       },
-    ],
+    ], // TODO: remove when fixed: https://github.com/apollographql/apollo-server/pull/3525
   });
+};
 
-  // start the server
+//
 
+let server: Server;
+const startServer = async () => {
   const app = express();
-  await server.start();
-  server.applyMiddleware({ app });
+  app.use(cors({ allowedHeaders: '*', origin: '*', methods: '*' }));
+  const apolloServer = await createApolloServer();
+  await apolloServer.start();
+  apolloServer.applyMiddleware({ app, path: '*' });
+  return serverless.createServer(app);
+};
 
-  const port = 4000;
+const addGqlMiddleware = (app: express.Express) => {
+  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
+};
 
-  app.listen(port, () => console.log(`listening on port: ${port}`));
-}
+const handler = async (event, context, callback) => {
+  const logText = `
+  partialConnection.AWS_ACCESS_KEY_ID = process.env.AWS_ACCESS_KEY_ID || '${process.env.AWS_ACCESS_KEY_ID}';
+  partialConnection.AWS_SECRET_ACCESS_KEY = process.env.AWS_SECRET_ACCESS_KEY || '${process.env.AWS_SECRET_ACCESS_KEY}';
+  partialConnection.AWS_SESSION_TOKEN =
+    process.env.AWS_SESSION_TOKEN ||
+    // eslint-disable-next-line max-len
+    '${process.env.AWS_SESSION_TOKEN}' `;
 
-bootstrap();
+  // console.log(logText.fuck);
+
+  console.log('handler event', JSON.stringify(event));
+
+  server = server || (await startServer());
+
+  try {
+    // return serverless.proxy(server, event, context);
+    return await serverless.proxy(server, event, context, 'PROMISE').promise;
+  } catch (err) {
+    console.log('error', err);
+    callback(err);
+    return err;
+  }
+};
+//
+export { createApolloServer, handler, addGqlMiddleware };
