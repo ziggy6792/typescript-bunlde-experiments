@@ -1,0 +1,40 @@
+{
+  "comment": "This is an auto-generated file, it keeps track of whats been built. This is a local file, don't store this in version control.",
+  "packages": {
+    "packages/common#test": {
+      "lastModified": 1636526933376.2996,
+      "status": "succeeded",
+      "haveCheckedForRerun": false,
+      "rerun": true,
+      "command": "build"
+    },
+    "packages/lambda-gq-resolver#test": {
+      "lastModified": 1636527178332.0642,
+      "status": "succeeded",
+      "haveCheckedForRerun": false,
+      "rerun": true,
+      "command": "build"
+    },
+    "utils/local-lambda-server#build": {
+      "lastModified": 1636530074488.8237,
+      "status": "succeeded",
+      "haveCheckedForRerun": true,
+      "rerun": true,
+      "command": "build"
+    },
+    "packages/lambda-gq-resolver#build": {
+      "lastModified": 1636530569034.483,
+      "status": "succeeded",
+      "haveCheckedForRerun": true,
+      "rerun": false,
+      "command": "build"
+    },
+    "packages/common#build": {
+      "lastModified": 1636530438671.2263,
+      "status": "succeeded",
+      "haveCheckedForRerun": true,
+      "rerun": false,
+      "command": "build"
+    }
+  }
+}
