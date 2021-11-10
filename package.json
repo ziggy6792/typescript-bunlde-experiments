@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "private": true,
   "scripts": {
-    "lint": "npx eslint --fix ./src/**/*.*",
+    "lint": "yarn eslint --fix ./src/**/*.*",
     "typecheck": "tsc --noEmit",
     "test": "jest --coverage --runInBand --colors --bail --detectOpenHandles",
     "update": "npx ncu -u && yarn install",
