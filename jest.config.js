@@ -1,7 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
-  roots: ['<rootDir>/src'],
-  moduleDirectories: ['<rootDir>'],
-  setupFilesAfterEnv: ['./src/test-utils/setup-after-env.ts'],
+    projects: ['<rootDir>/packages/*/jest.config.js'],
 };
