@@ -5,10 +5,9 @@
   "main": "dist/index.js",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "nodemon --exec 'run-s start:ts bundle' --watch src --ext '*'",
+    "start": "ttsc -w",
     "start:ts": "ttsc",
     "build": "ttsc",
-    "bundle": "node esbuild.config.js",
     "clean:light": "rm -rf ./dist && rm -rf ./tsconfig.build.tsbuildinfo",
     "clean:full": "yarn run clean:light && rm -rf ./node_modules",
     "typecheck": "tsc --noEmit",

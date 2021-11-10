@@ -7,8 +7,7 @@
   "scripts": {
     "start": "ttsc -w",
     "build": "ttsc",
-    "prepare:deployment": "yarn package-bundler bundle",
-    "esbuild": "node esbuild.config.js",
+    "prepare:deployment": "echo bundle",
     "clean:light": "rm -rf ./dist && rm -rf ./tsconfig.build.tsbuildinfo",
     "clean:full": "yarn run clean:light && rm -rf ./node_modules",
     "typecheck": "tsc --noEmit",
