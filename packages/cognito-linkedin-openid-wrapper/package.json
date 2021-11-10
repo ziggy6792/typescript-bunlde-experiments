@@ -48,6 +48,7 @@
     "chai-jest-diff": "^1.0.2",
     "eslint-plugin-chai-expect": "^1.1.1",
     "eslint-plugin-chai-friendly": "^0.4.1",
+    "eslint": "^7.25.0",
     "eslint-plugin-jest": "^21.22.0",
     "jest": "^26.6.3",
     "nodemon": "^2.0.6",

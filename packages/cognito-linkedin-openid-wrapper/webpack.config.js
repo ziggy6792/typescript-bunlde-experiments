@@ -52,7 +52,7 @@ const config = [
     entry: {
       server: './src/connectors/web/app.js',
     },
-    externals: [nodeExternals()],
+    // externals: [nodeExternals()], using pnp so we can't do this anymore
     plugins: [new NodemonPlugin()],
   },
 ];
