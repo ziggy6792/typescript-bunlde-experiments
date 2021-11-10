@@ -1,17 +1,11 @@
 {
-  "name": "@whire-be/lambda-gq-resolver",
+  "name": "demo-backend",
   "version": "1.0.0",
   "description": "demo Assignment Backend",
   "main": "./dist/index.js",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*",
-      "utils/*"
-    ]
-  },
   "scripts": {
-    "lint": "yarn eslint './{utils,packages}/**/src/**/*.ts'",
+    "lint": "yarn eslint --fix ./src/**/*.*",
     "typecheck": "tsc --noEmit",
     "test": "jest --coverage --runInBand --colors --bail --detectOpenHandles",
     "update": "npx ncu -u && yarn install",
