@@ -5,8 +5,8 @@
     "packages": "src/index.ts"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.build.json",
-    "start": "tsc -w -p tsconfig.build.json",
+    "build": "tsc -p",
+    "start": "tsc -w",
     "synth": "npx cdk synth",
     "test": "jest",
     "cdk": "cdk",
