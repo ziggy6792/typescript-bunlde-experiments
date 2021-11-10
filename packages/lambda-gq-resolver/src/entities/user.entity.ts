@@ -1,8 +1,9 @@
-import { Ref } from 'src/types';
 import { prop as Property, getModelForClass } from '@typegoose/typegoose';
+import _ from 'lodash';
+import { ObjectId } from 'mongodb';
+import { Ref } from 'src/types';
 import { ObjectType, Field } from 'type-graphql';
 import { PaginateModel } from 'typegoose-cursor-pagination';
-import { ObjectId } from 'mongodb';
 import { BaseEntity } from './base.entity';
 
 @ObjectType()
@@ -22,13 +23,15 @@ export class User extends BaseEntity {
   @Field({ name: 'fullName' })
   getFullName(): string {
     const { firstName, lastName } = this;
-    return `${firstName}${lastName ? ` ${lastName}` : ''}`;
+    const names = [firstName, lastName].filter(_.identity);
+    return names.join(' ');
   }
 
   @Field()
   @Property({ required: true })
   email: string;
 
+  
   @Property({ type: ObjectId })
   target: Ref<User>;
 }

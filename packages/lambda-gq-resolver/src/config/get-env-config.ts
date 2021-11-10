@@ -1,5 +1,6 @@
 import localConfig from 'src/test-utils/config';
 import { Config, EnvType } from 'src/types';
+import { commonConfig } from '@whire-be/common';
 
 // Point to test (local) or staging (cloud)
 // ToDo move this to local non staged file
@@ -20,7 +21,7 @@ const getCloudConfig = (): Config => {
     env,
     db: {
       uri: process.env.DB_URI || 'mongodb+srv://whire-cluster-0.vkh0d.mongodb.net',
-      options: { user: process.env.DB_OPTIONS_USER, pass: process.env.DB_OPTIONS_PASS, dbName: 'bla' },
+      options: { user: process.env.DB_OPTIONS_USER, pass: process.env.DB_OPTIONS_PASS, dbName: `${commonConfig.PROJECT_NAME}-${env}` },
     },
   };
 };
@@ -29,6 +30,7 @@ const envConfig = env ? getCloudConfig() : localConfig;
 
 const getEnvConfig = (): Config => {
   console.log('envConfig', envConfig);
+
   return envConfig;
 };
 

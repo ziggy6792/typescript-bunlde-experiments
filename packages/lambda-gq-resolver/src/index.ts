@@ -25,7 +25,7 @@ const createApolloServer = async (): Promise<ApolloServer> => {
     context: (recieved: any): Context => {
       const requestId = uuidv4(); // uuid-like
       const container = Container.of(requestId.toString()); // get scoped container
-      const context = new Context({ requestId, container }); // create our context
+      const context = new Context({ recieved, requestId, container }); // create our context
       container.set('context', context); // place context or other data in container
       return context;
     },

@@ -7,7 +7,7 @@ beforeAll(async () => {
   await testConn();
 });
 
-const updateUserMutation = `mutation updateUser($input: UpdateUserInput!){
+const updateUserMutation = `mutation updateUser($input: UpdateUserInput!){ 
   updateUser(input: $input){
     id
     firstName

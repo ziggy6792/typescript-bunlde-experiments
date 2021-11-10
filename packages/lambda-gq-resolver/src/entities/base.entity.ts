@@ -3,6 +3,8 @@ import { ObjectId } from 'mongodb';
 import { ObjectType, Field } from 'type-graphql';
 import paginationPlugin from 'typegoose-cursor-pagination';
 
+const _bla = '';
+
 @plugin(paginationPlugin)
 @modelOptions({
   schemaOptions: {
