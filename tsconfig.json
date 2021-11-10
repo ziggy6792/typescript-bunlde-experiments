@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "target": "es2017",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "importHelpers": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {},
+    "allowSyntheticDefaultImports": true,
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      }
+    ]
+  },
+  "exclude": ["node_modules", "dist", "scripts", "**/build", "**/dist", "**/node_modules", "cdk.out", "**/cdk.out"]
+}
